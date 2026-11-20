@@ -1,0 +1,267 @@
+columna,n,metodo,mediana_rondas_6_a_14_ms,min_ms,max_ms
+danceability,100,Quicksort,0.0616,0.0558,0.2335
+danceability,100,Shell sort,0.6502,0.6303,0.8697
+danceability,100,Arrays.sort,0.2354,0.1415,0.2711
+danceability,100,Mergesort,0.0865,0.0784,0.1565
+danceability,100,Seleccion directa,1.1464,0.1703,12.879
+danceability,100,Arrays.parallelSort,0.2184,0.137,0.284
+danceability,1000,Quicksort,0.8178,0.6408,1.2294
+danceability,1000,Shell sort,1.4055,1.1855,3.9498
+danceability,1000,Arrays.sort,1.0002,0.6713,2.3223
+danceability,1000,Mergesort,0.5222,0.4524,0.6922
+danceability,1000,Seleccion directa,4.5402,4.1733,18.2688
+danceability,1000,Arrays.parallelSort,0.9063,0.7954,1.3677
+danceability,10000,Mergesort,6.6364,4.2164,7.8331
+danceability,10000,Arrays.sort,6.8163,6.4924,16.6731
+danceability,10000,Quicksort,4.1358,3.7413,9.3537
+danceability,10000,Shell sort,40.7853,35.4625,47.486
+danceability,10000,Arrays.parallelSort,4.6296,2.303,14.4519
+danceability,3000,Mergesort,1.821,1.6729,9.6998
+danceability,3000,Arrays.sort,9.2615,5.4577,18.1807
+danceability,3000,Quicksort,1.385,1.0717,8.6362
+danceability,3000,Shell sort,7.4068,5.9819,11.2729
+danceability,3000,Arrays.parallelSort,9.1514,6.3346,22.9575
+danceability,32503,Mergesort,13.4832,10.4002,22.4672
+danceability,32503,Arrays.sort,13.1768,10.1403,25.0134
+danceability,32503,Quicksort,7.5563,6.492,15.9515
+danceability,32503,Shell sort,89.298,82.2738,182.9341
+danceability,32503,Arrays.parallelSort,5.3203,4.1243,8.3358
+danceability,500,Quicksort,0.3439,0.3344,0.3853
+danceability,500,Shell sort,0.9259,0.5167,1.2437
+danceability,500,Arrays.sort,0.4201,0.4096,0.5517
+danceability,500,Mergesort,0.2327,0.2266,0.2595
+danceability,500,Seleccion directa,1.3416,1.1732,1.5476
+danceability,500,Arrays.parallelSort,0.436,0.4003,0.6988
+danceability,5000,Mergesort,2.9962,2.7345,51.9443
+danceability,5000,Arrays.sort,3.6577,3.3262,44.4746
+danceability,5000,Quicksort,2.5522,2.0652,38.2463
+danceability,5000,Shell sort,23.4479,13.2777,43.156
+danceability,5000,Arrays.parallelSort,6.0061,3.2605,76.4383
+performer,100,Quicksort,0.0332,0.0298,0.0442
+performer,100,Shell sort,0.0945,0.081,0.1143
+performer,100,Arrays.sort,0.0501,0.0314,0.0744
+performer,100,Mergesort,0.0468,0.0388,0.0953
+performer,100,Seleccion directa,0.1265,0.104,0.1668
+performer,100,Arrays.parallelSort,0.0599,0.0325,4.8278
+performer,1000,Quicksort,0.3698,0.3466,0.8704
+performer,1000,Shell sort,1.8497,1.6812,5.502
+performer,1000,Arrays.sort,0.4944,0.4316,0.5897
+performer,1000,Mergesort,0.4563,0.384,5.6392
+performer,1000,Seleccion directa,11.2593,8.5908,17.7105
+performer,1000,Arrays.parallelSort,0.4823,0.4423,1.9339
+performer,10000,Mergesort,10.8667,7.6,23.6121
+performer,10000,Arrays.sort,10.9676,6.472,13.8156
+performer,10000,Quicksort,6.889,6.4716,12.3405
+performer,10000,Shell sort,97.4009,71.7659,193.9511
+performer,10000,Arrays.parallelSort,5.04,2.7457,7.1024
+performer,3000,Mergesort,1.7258,1.5477,2.2412
+performer,3000,Arrays.sort,1.7236,1.6298,2.0375
+performer,3000,Quicksort,1.5832,1.1594,1.8156
+performer,3000,Shell sort,11.723,8.4343,13.2223
+performer,3000,Arrays.parallelSort,1.7866,1.2805,2.0381
+performer,32503,Mergesort,56.8913,52.4675,68.085
+performer,32503,Arrays.sort,57.0844,29.4824,69.1384
+performer,32503,Quicksort,48.0026,20.7754,63.142
+performer,32503,Shell sort,1163.5188,802.6262,1247.803
+performer,32503,Arrays.parallelSort,20.0181,18.9739,41.7757
+performer,500,Quicksort,0.2149,0.1556,0.4552
+performer,500,Shell sort,0.7001,0.6273,27.0188
+performer,500,Arrays.sort,0.3263,0.2366,1.9439
+performer,500,Mergesort,0.2033,0.1683,0.2395
+performer,500,Seleccion directa,2.4905,2.0059,74.3714
+performer,500,Arrays.parallelSort,0.2693,0.2217,29.5784
+performer,5000,Mergesort,2.6634,1.8357,4.2062
+performer,5000,Arrays.sort,3.2873,1.9428,4.317
+performer,5000,Quicksort,2.1875,1.5774,3.3537
+performer,5000,Shell sort,24.2205,18.163,31.0308
+performer,5000,Arrays.parallelSort,2.5238,1.989,4.377
+song,100,Quicksort,0.0271,0.0218,0.037
+song,100,Shell sort,0.094,0.076,0.1958
+song,100,Arrays.sort,0.0286,0.0242,0.0449
+song,100,Mergesort,0.0371,0.0285,0.0517
+song,100,Seleccion directa,0.1217,0.1123,0.1343
+song,100,Arrays.parallelSort,0.0326,0.0263,0.0415
+song,1000,Quicksort,0.4614,0.4039,0.6747
+song,1000,Shell sort,2.1756,1.7817,4.3616
+song,1000,Arrays.sort,0.3882,0.3076,0.4612
+song,1000,Mergesort,0.4291,0.357,0.5174
+song,1000,Seleccion directa,10.2244,7.9063,12.1494
+song,1000,Arrays.parallelSort,0.4796,0.3525,0.7487
+song,10000,Mergesort,12.5549,10.2884,28.8519
+song,10000,Arrays.sort,13.9453,10.5272,23.554
+song,10000,Quicksort,13.1617,9.6486,40.3334
+song,10000,Shell sort,187.6869,132.2803,251.5173
+song,10000,Arrays.parallelSort,5.3975,3.9922,24.1605
+song,3000,Mergesort,1.734,1.4913,2.7243
+song,3000,Arrays.sort,1.7142,1.409,3.6991
+song,3000,Quicksort,1.9267,1.5912,3.7509
+song,3000,Shell sort,14.9984,13.4188,16.8842
+song,3000,Arrays.parallelSort,1.8022,1.3888,3.7215
+song,32503,Mergesort,55.6167,31.8936,62.2617
+song,32503,Arrays.sort,53.8152,32.5091,66.122
+song,32503,Quicksort,66.1397,36.1043,91.9212
+song,32503,Shell sort,1507.8284,1205.501,1613.4375
+song,32503,Arrays.parallelSort,24.4973,14.2662,34.2722
+song,500,Quicksort,0.1933,0.1648,0.4434
+song,500,Shell sort,0.901,0.6546,1.1531
+song,500,Arrays.sort,0.1988,0.1521,0.2739
+song,500,Mergesort,0.1966,0.157,0.2716
+song,500,Seleccion directa,2.2901,1.7772,4.8175
+song,500,Arrays.parallelSort,0.2686,0.1632,0.4162
+song,5000,Mergesort,4.1203,2.5911,6.8956
+song,5000,Arrays.sort,3.8324,1.9598,4.9745
+song,5000,Quicksort,3.4402,2.3243,10.0807
+song,5000,Shell sort,39.3847,25.803,52.4837
+song,5000,Arrays.parallelSort,3.9447,2.0698,5.641
+spotify_genre,100,Quicksort,0.0294,0.0268,0.0335
+spotify_genre,100,Shell sort,0.1246,0.1148,0.142
+spotify_genre,100,Arrays.sort,0.0446,0.0387,0.064
+spotify_genre,100,Mergesort,0.0388,0.037,0.0579
+spotify_genre,100,Seleccion directa,0.2195,0.1995,0.2635
+spotify_genre,100,Arrays.parallelSort,0.0476,0.04,0.0538
+spotify_genre,1000,Quicksort,0.7442,0.4944,0.9721
+spotify_genre,1000,Shell sort,3.9755,3.3529,6.7334
+spotify_genre,1000,Arrays.sort,0.7813,0.598,5.2659
+spotify_genre,1000,Mergesort,0.6685,0.6159,8.849
+spotify_genre,1000,Seleccion directa,17.8158,13.4915,34.0747
+spotify_genre,1000,Arrays.parallelSort,0.7728,0.5885,0.9303
+spotify_genre,10000,Mergesort,18.6344,11.8666,34.8608
+spotify_genre,10000,Arrays.sort,14.7807,13.1486,23.1809
+spotify_genre,10000,Quicksort,11.7235,10.7804,18.0892
+spotify_genre,10000,Shell sort,225.9048,167.0121,267.5626
+spotify_genre,10000,Arrays.parallelSort,9.6554,4.6638,12.1818
+spotify_genre,3000,Mergesort,2.646,1.8277,3.3092
+spotify_genre,3000,Arrays.sort,3.0161,2.3722,8.3591
+spotify_genre,3000,Quicksort,2.3711,1.5818,3.846
+spotify_genre,3000,Shell sort,19.3961,18.0793,21.995
+spotify_genre,3000,Arrays.parallelSort,2.6554,1.9224,3.5654
+spotify_genre,32503,Mergesort,73.1362,55.4947,92.48
+spotify_genre,32503,Arrays.sort,64.7485,56.9459,96.7566
+spotify_genre,32503,Quicksort,61.4462,45.2032,73.4729
+spotify_genre,32503,Shell sort,1665.212,1310.2252,1870.2488
+spotify_genre,32503,Arrays.parallelSort,26.0023,18.9092,50.1434
+spotify_genre,500,Quicksort,0.2177,0.2114,0.3111
+spotify_genre,500,Shell sort,1.3569,1.2485,3.2933
+spotify_genre,500,Arrays.sort,0.295,0.2637,0.4365
+spotify_genre,500,Mergesort,0.2859,0.2649,1.2005
+spotify_genre,500,Seleccion directa,4.042,3.5836,5.6025
+spotify_genre,500,Arrays.parallelSort,0.3071,0.2928,1.4089
+spotify_genre,5000,Mergesort,5.4026,5.0361,8.118
+spotify_genre,5000,Arrays.sort,6.2684,5.5658,7.8978
+spotify_genre,5000,Quicksort,4.4482,4.1409,5.742
+spotify_genre,5000,Shell sort,66.859,57.8259,115.9893
+spotify_genre,5000,Arrays.parallelSort,6.2359,5.0119,7.6101
+spotify_track_id,100,Quicksort,0.0314,0.0256,0.0342
+spotify_track_id,100,Shell sort,0.0891,0.0794,0.0972
+spotify_track_id,100,Arrays.sort,0.0342,0.0302,0.0554
+spotify_track_id,100,Mergesort,0.035,0.0286,0.0421
+spotify_track_id,100,Seleccion directa,0.1177,0.1088,0.1938
+spotify_track_id,100,Arrays.parallelSort,0.0351,0.031,0.0385
+spotify_track_id,1000,Quicksort,0.5806,0.53,1.7746
+spotify_track_id,1000,Shell sort,3.2988,2.3372,41.4588
+spotify_track_id,1000,Arrays.sort,0.5992,0.5321,0.7329
+spotify_track_id,1000,Mergesort,0.612,0.5323,1.9262
+spotify_track_id,1000,Seleccion directa,17.436,12.8293,58.5041
+spotify_track_id,1000,Arrays.parallelSort,0.9202,0.5047,3.8678
+spotify_track_id,10000,Mergesort,11.004,10.0367,12.0881
+spotify_track_id,10000,Arrays.sort,11.5684,10.0309,15.4127
+spotify_track_id,10000,Quicksort,10.9516,10.1729,13.389
+spotify_track_id,10000,Shell sort,107.2198,98.4644,122.4005
+spotify_track_id,10000,Arrays.parallelSort,6.0239,3.6467,7.2435
+spotify_track_id,3000,Mergesort,2.7344,2.2875,4.2022
+spotify_track_id,3000,Arrays.sort,2.544,1.9676,4.2749
+spotify_track_id,3000,Quicksort,3.4956,2.1483,10.5554
+spotify_track_id,3000,Shell sort,19.1577,12.6388,25.9542
+spotify_track_id,3000,Arrays.parallelSort,2.7603,2.2546,4.5828
+spotify_track_id,32503,Mergesort,48.9517,40.2825,55.2103
+spotify_track_id,32503,Arrays.sort,52.1805,36.841,69.2283
+spotify_track_id,32503,Quicksort,60.3923,47.0053,66.9644
+spotify_track_id,32503,Shell sort,914.1881,825.5922,1134.1523
+spotify_track_id,32503,Arrays.parallelSort,23.3052,13.1635,46.2836
+spotify_track_id,500,Quicksort,0.223,0.1997,0.3664
+spotify_track_id,500,Shell sort,0.9191,0.7849,1.186
+spotify_track_id,500,Arrays.sort,0.2507,0.2052,0.3417
+spotify_track_id,500,Mergesort,0.2518,0.2085,3.4749
+spotify_track_id,500,Seleccion directa,2.7662,2.4073,117.9698
+spotify_track_id,500,Arrays.parallelSort,0.2474,0.2169,0.4224
+spotify_track_id,5000,Mergesort,4.0461,2.8521,5.1285
+spotify_track_id,5000,Arrays.sort,3.8026,2.8509,5.6326
+spotify_track_id,5000,Quicksort,3.785,2.7593,4.3992
+spotify_track_id,5000,Shell sort,30.5552,25.88,33.879
+spotify_track_id,5000,Arrays.parallelSort,3.8413,2.601,4.4394
+spotify_track_popularity,100,Quicksort,0.0103,0.0086,0.012
+spotify_track_popularity,100,Shell sort,0.0307,0.0272,0.0338
+spotify_track_popularity,100,Arrays.sort,0.0173,0.0146,0.0342
+spotify_track_popularity,100,Mergesort,0.0177,0.0135,0.0195
+spotify_track_popularity,100,Seleccion directa,0.0309,0.027,0.0495
+spotify_track_popularity,100,Arrays.parallelSort,0.0179,0.0161,0.024
+spotify_track_popularity,1000,Quicksort,0.1116,0.1062,0.1283
+spotify_track_popularity,1000,Shell sort,0.6502,0.6218,0.7244
+spotify_track_popularity,1000,Arrays.sort,0.3677,0.2754,0.5056
+spotify_track_popularity,1000,Mergesort,0.2443,0.2212,0.317
+spotify_track_popularity,1000,Seleccion directa,2.3602,2.1168,2.6384
+spotify_track_popularity,1000,Arrays.parallelSort,0.3172,0.2908,0.712
+spotify_track_popularity,10000,Mergesort,2.8349,2.7172,3.378
+spotify_track_popularity,10000,Arrays.sort,3.529,2.6729,4.6281
+spotify_track_popularity,10000,Quicksort,1.3613,1.2666,5.6547
+spotify_track_popularity,10000,Shell sort,17.9962,17.1394,21.5293
+spotify_track_popularity,10000,Arrays.parallelSort,2.3775,1.3944,5.2788
+spotify_track_popularity,3000,Mergesort,0.7686,0.7217,0.9271
+spotify_track_popularity,3000,Arrays.sort,0.8006,0.7559,1.0516
+spotify_track_popularity,3000,Quicksort,0.3579,0.3261,0.4173
+spotify_track_popularity,3000,Shell sort,2.9569,2.7058,3.7558
+spotify_track_popularity,3000,Arrays.parallelSort,0.8103,0.7263,0.9341
+spotify_track_popularity,32503,Mergesort,11.9157,9.0193,30.0233
+spotify_track_popularity,32503,Arrays.sort,8.4187,6.8916,11.1322
+spotify_track_popularity,32503,Quicksort,4.4644,3.1683,5.0159
+spotify_track_popularity,32503,Shell sort,81.3697,69.6275,97.0745
+spotify_track_popularity,32503,Arrays.parallelSort,5.1353,3.17,8.4429
+spotify_track_popularity,500,Quicksort,0.0558,0.0478,0.0682
+spotify_track_popularity,500,Shell sort,0.2674,0.2448,0.3275
+spotify_track_popularity,500,Arrays.sort,0.1357,0.1248,0.1623
+spotify_track_popularity,500,Mergesort,0.1204,0.1049,0.1313
+spotify_track_popularity,500,Seleccion directa,0.5989,0.5598,0.6806
+spotify_track_popularity,500,Arrays.parallelSort,0.1451,0.1287,0.2767
+spotify_track_popularity,5000,Mergesort,1.4739,1.1402,2.022
+spotify_track_popularity,5000,Arrays.sort,1.2899,1.1344,2.4165
+spotify_track_popularity,5000,Quicksort,0.5922,0.5369,0.8231
+spotify_track_popularity,5000,Shell sort,6.9688,6.2601,8.6454
+spotify_track_popularity,5000,Arrays.parallelSort,1.4346,1.2358,1.6021
+tempo,100,Quicksort,0.0155,0.0119,0.0169
+tempo,100,Shell sort,0.0349,0.0314,0.0374
+tempo,100,Arrays.sort,0.0315,0.0282,0.0361
+tempo,100,Mergesort,0.022,0.0183,0.0285
+tempo,100,Seleccion directa,0.0352,0.0303,0.0413
+tempo,100,Arrays.parallelSort,0.0317,0.0262,0.0619
+tempo,1000,Quicksort,0.1652,0.1335,0.2157
+tempo,1000,Shell sort,0.5412,0.4755,2.2346
+tempo,1000,Arrays.sort,0.1973,0.1432,0.3188
+tempo,1000,Mergesort,0.2066,0.1475,0.7462
+tempo,1000,Seleccion directa,1.91,1.731,3.4036
+tempo,1000,Arrays.parallelSort,0.2121,0.1919,0.2858
+tempo,10000,Mergesort,3.1904,2.8076,3.6636
+tempo,10000,Arrays.sort,3.0961,2.8164,4.4216
+tempo,10000,Quicksort,2.9458,2.5631,6.5434
+tempo,10000,Shell sort,16.657,13.5014,24.7692
+tempo,10000,Arrays.parallelSort,1.8228,1.3176,2.9807
+tempo,3000,Mergesort,0.7803,0.6936,0.9827
+tempo,3000,Arrays.sort,0.811,0.7511,1.1477
+tempo,3000,Quicksort,0.6465,0.5719,0.7188
+tempo,3000,Shell sort,2.4838,2.4151,2.6224
+tempo,3000,Arrays.parallelSort,0.7981,0.7546,1.4105
+tempo,32503,Mergesort,11.507,8.5319,14.2568
+tempo,32503,Arrays.sort,10.9449,8.2325,15.7027
+tempo,32503,Quicksort,8.179,7.0943,10.951
+tempo,32503,Shell sort,62.154,49.8219,70.107
+tempo,32503,Arrays.parallelSort,3.7609,3.0932,6.3509
+tempo,500,Quicksort,0.1019,0.0924,0.1187
+tempo,500,Shell sort,0.3031,0.2774,0.4536
+tempo,500,Arrays.sort,0.1253,0.1205,0.2495
+tempo,500,Mergesort,0.1288,0.1165,0.2512
+tempo,500,Seleccion directa,0.7125,0.6564,0.7701
+tempo,500,Arrays.parallelSort,0.1248,0.117,0.1942
+tempo,5000,Mergesort,1.4095,1.2801,1.9631
+tempo,5000,Arrays.sort,1.436,1.2243,4.1203
+tempo,5000,Quicksort,1.1165,1.0302,1.7377
+tempo,5000,Shell sort,5.2837,3.977,5.6497
+tempo,5000,Arrays.parallelSort,1.3893,1.0712,1.7293

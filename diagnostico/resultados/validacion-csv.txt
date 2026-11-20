@@ -1,0 +1,4 @@
+OK detecta columnas incompletas
+LIMITACION CONFIRMADA: no admite campos multilinea
+SHA256 campos Java=136ca3eb0bf948e2dc141da201b60fd8cfc2feb48255df0d212e0ca2aae0d2aa
+SHA256 campos Python=136ca3eb0bf948e2dc141da201b60fd8cfc2feb48255df0d212e0ca2aae0d2aa

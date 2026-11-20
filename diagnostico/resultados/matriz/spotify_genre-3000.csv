@@ -1,0 +1,76 @@
+columna,n,ronda,metodo,ms,gc_delta,jit_ms_delta,bytes_hilo,hash_entrada
+spotify_genre,3000,0,Mergesort,5.916500,0,0,252624,601753309
+spotify_genre,3000,0,Arrays.sort,3.283700,0,0,13568,601753309
+spotify_genre,3000,0,Quicksort,4.462600,0,0,48,601753309
+spotify_genre,3000,0,Shell sort,24.666400,0,0,48,601753309
+spotify_genre,3000,0,Arrays.parallelSort,4.006400,0,0,13568,601753309
+spotify_genre,3000,1,Shell sort,19.263500,0,0,48,601753309
+spotify_genre,3000,1,Arrays.sort,2.586400,0,0,13568,601753309
+spotify_genre,3000,1,Quicksort,2.359200,0,0,48,601753309
+spotify_genre,3000,1,Mergesort,2.743500,0,0,252624,601753309
+spotify_genre,3000,1,Arrays.parallelSort,3.009700,0,0,13568,601753309
+spotify_genre,3000,2,Quicksort,2.663100,0,0,48,601753309
+spotify_genre,3000,2,Arrays.sort,2.705500,0,0,13568,601753309
+spotify_genre,3000,2,Mergesort,2.611800,0,0,252624,601753309
+spotify_genre,3000,2,Shell sort,21.797400,0,0,48,601753309
+spotify_genre,3000,2,Arrays.parallelSort,2.946700,0,0,13568,601753309
+spotify_genre,3000,3,Arrays.parallelSort,2.991800,0,0,13568,601753309
+spotify_genre,3000,3,Mergesort,2.809700,0,0,252624,601753309
+spotify_genre,3000,3,Quicksort,2.304900,0,0,48,601753309
+spotify_genre,3000,3,Shell sort,19.259200,0,0,48,601753309
+spotify_genre,3000,3,Arrays.sort,2.849900,0,0,13568,601753309
+spotify_genre,3000,4,Shell sort,17.968900,0,0,48,601753309
+spotify_genre,3000,4,Quicksort,2.459500,0,0,48,601753309
+spotify_genre,3000,4,Arrays.sort,3.057600,0,0,13568,601753309
+spotify_genre,3000,4,Mergesort,4.289400,0,0,252624,601753309
+spotify_genre,3000,4,Arrays.parallelSort,2.708100,0,0,13568,601753309
+spotify_genre,3000,5,Arrays.sort,2.811600,0,0,13568,601753309
+spotify_genre,3000,5,Arrays.parallelSort,2.666400,0,0,13568,601753309
+spotify_genre,3000,5,Mergesort,2.633900,0,0,252624,601753309
+spotify_genre,3000,5,Shell sort,15.592000,0,0,48,601753309
+spotify_genre,3000,5,Quicksort,2.318400,0,0,48,601753309
+spotify_genre,3000,6,Arrays.parallelSort,3.565400,0,0,13568,601753309
+spotify_genre,3000,6,Quicksort,2.421600,0,0,48,601753309
+spotify_genre,3000,6,Mergesort,2.907800,0,0,252624,601753309
+spotify_genre,3000,6,Arrays.sort,2.944600,0,0,13568,601753309
+spotify_genre,3000,6,Shell sort,19.100700,0,0,48,601753309
+spotify_genre,3000,7,Quicksort,2.371100,0,0,48,601753309
+spotify_genre,3000,7,Arrays.sort,2.622400,0,0,13568,601753309
+spotify_genre,3000,7,Shell sort,19.396100,0,0,48,601753309
+spotify_genre,3000,7,Mergesort,1.827700,0,0,252624,601753309
+spotify_genre,3000,7,Arrays.parallelSort,1.922400,0,0,13568,601753309
+spotify_genre,3000,8,Shell sort,21.995000,0,0,48,601753309
+spotify_genre,3000,8,Arrays.sort,3.799000,0,0,13568,601753309
+spotify_genre,3000,8,Mergesort,3.309200,0,0,252624,601753309
+spotify_genre,3000,8,Quicksort,3.835800,0,0,48,601753309
+spotify_genre,3000,8,Arrays.parallelSort,2.655400,0,0,13568,601753309
+spotify_genre,3000,9,Mergesort,2.625400,0,0,252624,601753309
+spotify_genre,3000,9,Arrays.sort,8.359100,0,23,13568,601753309
+spotify_genre,3000,9,Shell sort,19.581000,0,0,48,601753309
+spotify_genre,3000,9,Arrays.parallelSort,2.811300,0,0,13568,601753309
+spotify_genre,3000,9,Quicksort,2.867700,0,0,48,601753309
+spotify_genre,3000,10,Shell sort,19.648100,0,0,48,601753309
+spotify_genre,3000,10,Quicksort,1.581800,0,0,48,601753309
+spotify_genre,3000,10,Arrays.parallelSort,2.047900,0,0,13568,601753309
+spotify_genre,3000,10,Mergesort,1.933300,0,0,252624,601753309
+spotify_genre,3000,10,Arrays.sort,2.372200,0,0,13568,601753309
+spotify_genre,3000,11,Arrays.sort,3.793800,0,0,13568,601753309
+spotify_genre,3000,11,Mergesort,2.587700,0,0,252624,601753309
+spotify_genre,3000,11,Shell sort,18.079300,0,0,48,601753309
+spotify_genre,3000,11,Arrays.parallelSort,3.275600,0,0,13568,601753309
+spotify_genre,3000,11,Quicksort,3.846000,0,0,48,601753309
+spotify_genre,3000,12,Shell sort,18.255000,0,0,48,601753309
+spotify_genre,3000,12,Arrays.parallelSort,2.586500,0,0,13568,601753309
+spotify_genre,3000,12,Quicksort,2.064200,0,0,48,601753309
+spotify_genre,3000,12,Arrays.sort,2.590800,0,0,13568,601753309
+spotify_genre,3000,12,Mergesort,2.805900,0,0,252624,601753309
+spotify_genre,3000,13,Quicksort,2.217400,0,0,48,601753309
+spotify_genre,3000,13,Arrays.parallelSort,2.956700,0,0,13568,601753309
+spotify_genre,3000,13,Mergesort,3.153800,0,0,252624,601753309
+spotify_genre,3000,13,Shell sort,19.653100,0,0,48,601753309
+spotify_genre,3000,13,Arrays.sort,3.016100,0,0,13568,601753309
+spotify_genre,3000,14,Mergesort,2.646000,0,0,252624,601753309
+spotify_genre,3000,14,Arrays.parallelSort,2.468300,0,0,13568,601753309
+spotify_genre,3000,14,Shell sort,18.543000,0,0,48,601753309
+spotify_genre,3000,14,Arrays.sort,4.568100,0,0,13568,601753309
+spotify_genre,3000,14,Quicksort,2.333800,0,0,48,601753309

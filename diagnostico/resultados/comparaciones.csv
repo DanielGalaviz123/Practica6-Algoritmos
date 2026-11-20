@@ -1,0 +1,54 @@
+columna,n,metodo,comparaciones
+danceability,32503,Seleccion directa,528206253
+danceability,32503,Shell sort,5135983
+danceability,32503,Quicksort,305265
+danceability,32503,Mergesort,419807
+danceability,32503,Arrays.sort,392946
+danceability,32503,Arrays.parallelSort,413189
+tempo,32503,Shell sort,5465309
+tempo,32503,Quicksort,494923
+tempo,32503,Mergesort,419777
+tempo,32503,Arrays.sort,409802
+tempo,32503,Arrays.parallelSort,413350
+spotify_track_popularity,32503,Shell sort,4884329
+spotify_track_popularity,32503,Quicksort,239018
+spotify_track_popularity,32503,Mergesort,419978
+spotify_track_popularity,32503,Arrays.sort,315684
+spotify_track_popularity,32503,Arrays.parallelSort,369189
+performer,32503,Shell sort,5334893
+performer,32503,Quicksort,459709
+performer,32503,Mergesort,445921
+performer,32503,Arrays.sort,431667
+performer,32503,Arrays.parallelSort,436128
+song,32503,Shell sort,6688776
+song,32503,Quicksort,630160
+song,32503,Mergesort,425214
+song,32503,Arrays.sort,425455
+song,32503,Arrays.parallelSort,425108
+spotify_genre,32503,Shell sort,5559217
+spotify_genre,32503,Quicksort,339778
+spotify_genre,32503,Mergesort,439000
+spotify_genre,32503,Arrays.sort,399318
+spotify_genre,32503,Arrays.parallelSort,417525
+spotify_track_id,32503,Shell sort,5431598
+spotify_track_id,32503,Quicksort,522489
+spotify_track_id,32503,Mergesort,420254
+spotify_track_id,32503,Arrays.sort,405699
+spotify_track_id,32503,Arrays.parallelSort,411308
+iguales,32503,Shell sort,422549
+iguales,32503,Quicksort,32502
+iguales,32503,Mergesort,244449
+iguales,32503,Arrays.sort,32502
+iguales,32503,Arrays.parallelSort,56902
+ascendente,5000,Seleccion directa,12497500
+ascendente,5000,Shell sort,55005
+ascendente,5000,Quicksort,379198
+ascendente,5000,Mergesort,32004
+ascendente,5000,Arrays.sort,4999
+ascendente,5000,Arrays.parallelSort,4999
+descendente,5000,Seleccion directa,12497500
+descendente,5000,Shell sort,119689
+descendente,5000,Quicksort,12497500
+descendente,5000,Mergesort,29804
+descendente,5000,Arrays.sort,4999
+descendente,5000,Arrays.parallelSort,4999

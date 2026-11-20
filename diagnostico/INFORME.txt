@@ -1,0 +1,387 @@
+INVESTIGACION DE TIEMPOS — PRACTICA 6
+Fecha de la sesion: 19 de noviembre de 2026 (America/Tijuana).
+
+RESULTADO PRINCIPAL
+
+La inestabilidad inicial se reprodujo con el procedimiento real de la aplicacion.
+No encontre fallos de ordenamiento ni perdida de registros en los seis algoritmos
+durante las pruebas. Si encontre un calentamiento insuficiente: el JIT seguia
+compilando TimSort dentro de las rondas que ya se usaban para obtener la mediana.
+Hay, ademas, diferencias demostrables en comparaciones y asignaciones de memoria.
+Una pausa de GC explica buena parte de un pico concreto de Mergesort, pero no
+explica las primeras muestras lentas de los metodos nativos en la prueba perfilada.
+Los tiempos posteriores bajan, pero no llegan a ser constantes ni permiten
+declarar una clasificacion universal entre los algoritmos.
+
+1. VERSION REAL Y RECORRIDO DEL PROGRAMA
+
+Se inspeccionaron todas las clases Java presentes, pom.xml y module-info.java.
+El repositorio tenia cambios previos y archivos sin seguimiento; se conservaron.
+En particular, los cambios ya existentes en Ordenamientos.java y Prueba.java
+no son modificaciones realizadas por esta investigacion.
+
+La configuracion real compila para Java 23, no Java 21 como indicaba el contexto.
+Se utilizo Oracle HotSpot 23.0.1+11-39, 64 bits, 8 procesadores disponibles y
+parallelismo 7 del common pool. JavaFX sigue siendo 21.0.6. Se invoco directamente
+el ejecutable del JDK instalado para no depender del intermediario javapath.
+
+HelloApplication crea VentanaPrincipal; Launcher es una entrada alternativa.
+HelloController es el controlador de la plantilla FXML, sin papel en la ventana
+construida por codigo. module-info declara los modulos usados por la aplicacion.
+
+VentanaPrincipal carga el CSV mediante una Task en un hilo independiente.
+LectorCSV interpreta encabezados, comas entre comillas, comillas escapadas y
+campos vacios; DatosMusica conserva las filas completas y sus encabezados.
+DatosMusica.prepararColumna extrae las primeras n filas de una columna.
+DatosColumna convierte los numeros una sola vez, marca vacios y proporciona
+el criterio comun de comparacion. Una columna que contiene texto o numeros
+no finitos se compara como texto. Las fechas ISO y booleanos se ordenan como
+texto, aunque las cabeceras de la interfaz los visualicen con otro perfil.
+
+ComparadorOrdenamientos genera indices Integer, clona esa entrada para cada
+ordenamiento, mide, verifica y produce ResultadoPrueba y el record Resumen.
+TablaMusica recupera las filas completas mediante los indices del resultado.
+Ver tabla original reutiliza DatosMusica, sin releer el archivo.
+PanelGraficas construye perfiles en los encabezados y muestra la ultima prueba.
+Sus dos graficas usan ultimaPrueba, no el historial, por lo que no mezclan
+ejecuciones anteriores. Al elegir todas las columnas, cada barra es la media
+aritmetica de las medianas de esas columnas, del mismo tamano y ejecucion.
+Esa media mezcla tareas distintas y puede ocultar diferencias entre columnas;
+no es la mediana de un unico ordenamiento. La tabla conserva los detalles.
+
+Prueba.java es una demostracion con entradas sinteticas y una sola pasada por
+metodo; sus tiempos no constituyen el mismo experimento que la interfaz.
+
+Datos reales: 32,503 registros, 33 columnas, 42,836,307 bytes.
+SHA-256 del archivo:
+BE3C7C02B24D2F671B029E338E191A46C5A8354A6ABD205D2EFAD8F461CAE7FB
+
+Una segunda lectura con csv de Python y la lectura Java produjeron exactamente
+el mismo SHA-256 de TODOS los campos, incluidos encabezados y orden de filas:
+136ca3eb0bf948e2dc141da201b60fd8cfc2feb48255df0d212e0ca2aae0d2aa
+La huella usa longitud UTF-8 de cuatro bytes big-endian seguida de cada campo.
+Por tanto, la lectura de este archivo no esta cambiando la entrada entre pruebas.
+
+2. AUDITORIA DE LOS SEIS ALGORITMOS
+
+Seleccion directa: busca el minimo y lo intercambia al terminar cada recorrido.
+Es correcto; realiza n(n-1)/2 comparaciones. El codigo actual hace las dos
+asignaciones incluso si k==i, a diferencia de una afirmacion del contexto.
+Es un costo menor, sin reboxing del temporal: menor es Integer. No se cambio.
+
+Shell: es la variante docente de intervalos divididos entre dos y recorridos
+con intercambios hasta que band deja de cambiar. Termina con intervalo uno;
+esa fase garantiza el orden final. No es la variante de insercion por saltos.
+Sus recorridos adicionales explican millones de comparaciones; no se reemplazo.
+
+Quicksort: particion de tres vias con el primer elemento como pivote. Mantiene
+las zonas menores, iguales, pendientes y mayores. Tras intercambiar desde el
+extremo derecho NO incrementa i, porque falta clasificar el elemento recibido.
+Excluye los iguales de las siguientes particiones. Recurre sobre el lado menor
+y continua iterativamente por el mayor; esto limita la pila, no el tiempo total.
+Los temporales y el pivote son Integer, sin creacion reiterada de envoltorios.
+Es correcto con duplicados y vacios, que son una clase de equivalencia mas.
+No es identico al pseudocodigo docente de dos vias.
+
+Caso desfavorable demostrado: 5,000 numeros distintos descendentes requieren
+12,497,500 comparaciones; Mergesort necesita 29,804 y TimSort 4,999. La eleccion
+del primer pivote conserva el peor caso cuadratico aunque la pila sea acotada.
+Cambiar el pivote seria cambiar una decision del algoritmo. No se hizo para
+forzar un mejor puesto en las tablas.
+
+Mergesort: division superior recursiva, dos mitades auxiliares por mezcla y
+eleccion de la izquierda cuando hay empate. Condicion base, limites, avance
+de indices y copias finales son correctos. Es estable. Hace O(n log n) trabajo
+y tiene O(n) memoria auxiliar simultaneamente viva; el volumen acumulado de
+referencias asignadas es O(n log n). Para n=32,503 crea 65,004 arreglos auxiliares
+(dos por cada uno de los n-1 nodos internos). La version anterior con un unico
+auxiliar reutilizado tambien era valida; no habia razon para hacerla mas lenta
+solo porque superaba a otros metodos. Se conservo la variante actual.
+
+Arrays.sort y Arrays.parallelSort: ambas llamadas usan Integer[] con el mismo
+comparador de DatosColumna, correctamente. Ordenar los indices sin comparador
+seria incorrecto para este proyecto. Esta sobrecarga para objetos usa TimSort
+en el caso secuencial, no el Quicksort de arreglos primitivos.
+
+Se inspecciono Arrays.java dentro del src.zip del JDK instalado: parallelSort
+usa TimSort secuencial si n<=8192 o el parallelismo es uno. Por tanto, las
+pruebas de 3,000 y 5,000 NO comparan trabajo paralelo contra secuencial.
+En 32,503 si puede dividir y mezclar mediante el common pool. Contabilizar
+el tiempo de pared de esa operacion es correcto; no equivale a sumar tiempo
+de CPU de todos sus hilos. Las diferencias entre ambas llamadas a 5,000 no
+prueban una ventaja del paralelismo.
+
+DatosColumna.comparar no convierte, no hace trim ni crea arreglos por llamada.
+Hace comprobaciones de vacio y Double.compare o compareToIgnoreCase. Comparar
+texto puede recorrer varios caracteres; una comparacion no tiene un costo
+constante identico entre columnas. Integer[] agrega indirecciones y unboxing
+frente a valores primitivos. Es una decision compartida por los seis metodos.
+Sustituirlo solo para algunos invalidaria esta comparacion.
+
+Los metodos estables conservan el orden relativo de empates; seleccion, Shell
+y Quicksort no lo garantizan. Dos listas de indices diferentes pueden ser
+igualmente correctas cuando hay valores equivalentes. Las pruebas comparan
+el valor ordenado y la permutacion, sin exigir estabilidad a todos.
+
+3. AUDITORIA DEL PROCEDIMIENTO ORIGINAL
+
+Correcto: CSV, extraccion, conversion, indices, mezcla opcional y clone quedan
+fuera del cronometro. Todos reciben exactamente el mismo orden inicial y el
+mismo comparador. Se alternan metodos con semilla fija, se hacen nueve muestras
+y se calcula la mediana. Verificar el orden, rango y unicidad ocurre despues
+de nanoTime. La interfaz usa el orden original del CSV, no datos ya ordenados.
+
+Problema demostrado: tres calentamientos no bastaron. Se destruia el orden
+cronologico de las nueve muestras al ordenarlas para calcular la mediana y
+solo se conservaba esta. Una mediana reduce el efecto de un pico aislado,
+pero no elimina un cambio sistematico por compilacion durante toda la tanda.
+
+Prueba exacta del Comparador original: danceability, primeros 5,000 registros,
+503 vacios, cinco llamadas consecutivas en la misma JVM, sin cambiar entrada.
+Cada cifra ya es la mediana de las nueve mediciones de esa llamada:
+
+Metodo                 llamada 1       2         3         4         5  (ms)
+Seleccion directa       135.1872   82.0111   56.9817   62.6413   53.1583
+Shell sort               15.2016    9.3514    6.6243    6.8585    6.7636
+Quicksort                 2.1045    1.3852    0.9066    0.9658    0.9343
+Mergesort                 3.3705    2.0289    1.5496    1.5491    1.4649
+Arrays.sort              15.5426    2.3084    1.5189    1.4973    1.2547
+Arrays.parallelSort      15.7789    2.4620    1.5723    1.5240    1.5427
+
+Fuente: resultados/gui-original.csv, obtenida ANTES de modificar produccion.
+La reduccion de Arrays.sort es aproximadamente 12.4 veces, con n identico.
+Esto reproduce el problema sin confundir el efecto con cambiar 5,000 a 3,000.
+
+4. PRUEBAS QUE IDENTIFICAN LAS CAUSAS
+
+Se ejecutaron 100 rondas intercaladas de los seis metodos a n=5,000 y 20 rondas
+a n=32,503. Son JVM nuevas por experimento, con clones identicos por muestra.
+Los contadores de comparaciones se ejecutaron en OTRA fase, no en el cronometro.
+Las mediciones perfiladas llevan JFR y se distinguen de las que no lo llevan.
+
+A n=5,000, primera muestra / mediana de las ultimas 20 (ms):
+Seleccion: 138.7244 / 60.7701; Shell: 28.6683 / 7.4289;
+Quicksort: 10.5766 / 0.9785; Mergesort: 4.0080 / 1.6790;
+Arrays.sort: 7.2859 / 1.6332; parallelSort: 5.1427 / 1.6760.
+No son las medianas de la interfaz: son muestras individuales del arnes.
+
+JIT: Flight Recorder registro compilaciones C1/C2 de comparar, quick, merge,
+combinar, lambdas y varios metodos de TimSort. binarySort y mergeHi seguian
+compilandose en la ronda 3 y posteriores. En la ronda 3 Arrays.sort tardo
+7.3900 ms y parallelSort 7.4575 ms: aun no eran muestras de regimen estable.
+Los CSV de solapamientos identifican metodo, ronda, nivel de compilacion y GC.
+Una compilacion solapada puede pertenecer a un metodo ejecutado anteriormente;
+no debe atribuirse automaticamente al algoritmo que ocupa esa muestra.
+La coincidencia prueba actividad JIT durante la medicion; no permite repartir
+cada milisegundo observado entre compilacion, carga, ejecucion o planificacion.
+
+GC: en n=5,000 hubo una pausa JFR de 6.128 ms durante Mergesort, ronda 89,
+cuya muestra fue 8.1082 ms. En n=32,503 hubo una pausa de 36.094 ms durante
+Mergesort, ronda 10, muestra 48.1733 ms. Las primeras muestras de los metodos
+nativos NO se solaparon con pausas GC. Es incorrecto explicar todo por GC.
+El evento temporal no prueba que toda la basura proceda de ese algoritmo:
+el recolector tambien procesa asignaciones de pasos anteriores y del arnes.
+
+Memoria, mediana de bytes asignados en el HILO LLAMADOR a n=32,503:
+Quicksort 48; Mergesort 3,125,712; Arrays.sort 129,968;
+Arrays.parallelSort 131,040. El arnes incluye un evento de aproximadamente
+48 bytes por muestra; por ello los 48 de Quicksort no significan que el
+algoritmo asigne ese objeto. Se excluye el clone, pero NO se contabilizan
+las asignaciones de los trabajadores paralelos. Son bytes acumulados,
+no memoria maxima viva ni una comparacion completa de memoria de parallelSort.
+La diferencia grande de Mergesort concuerda con sus arreglos por mezcla.
+
+Comparaciones a n=32,503, danceability, 5,169 vacios:
+Seleccion: 528,206,253; Shell: 5,135,983; Quicksort: 305,265;
+Mergesort: 419,807; Arrays.sort: 392,946; parallelSort: 413,189.
+Quicksort realiza aproximadamente 27% menos comparaciones que Mergesort.
+Con song ocurre lo contrario: Quicksort 630,160, Mergesort 425,214 y
+Arrays.sort 425,455. Los tiempos de la matriz tambien cambian de orden:
+para song completo las medianas fueron 66.140, 55.617 y 53.815 ms,
+respectivamente. No hay una expectativa teorica de ganador fijo.
+
+La version de Quicksort de dos vias se extrajo del HEAD local
+0234d78f48051323539a1e8790af97485abd62c1, cambiando solo el nombre de clase
+a ReferenciaAnterior para ejecutarla aparte. No se asumio que correspondiera
+exactamente a cada tabla historica del contexto.
+Misma danceability completa: dos vias 6,380,910 comparaciones; tres vias 305,265
+(unas 20.9 veces menos). Todos iguales: 528,206,253 frente a 32,502.
+Es evidencia directa del efecto de la particion, no una inferencia a partir
+de tiempos antiguos que no se pueden reproducir con certeza.
+
+Se hicieron tambien tres JVM independientes por cada uno de los cuatro
+metodos rapidos, con 100 repeticiones de danceability a 5,000, sin JFR.
+Arrays.sort: primera 29.412 / 11.534 / 10.968 ms; medianas de ultimas 20
+1.959 / 1.788 / 1.828 ms. Quicksort: primera 10.109 / 11.092 / 11.284;
+ultimas 20: 0.899 / 0.899 / 1.089. La caida inicial se repite entre JVM.
+
+Control sin JIT (-Xint), 30 rondas por metodo sobre los mismos 5,000:
+Quicksort: primera 16.308 ms, ultimas 20 mediana 12.815;
+Mergesort: 62.738 / 28.246; Arrays.sort: 29.446 / 26.701;
+parallelSort: 108.858 / 27.825. El tiempo total de compilacion es cero.
+Este control demuestra que pueden existir primeras pasadas lentas SIN JIT;
+no identifica por si mismo si son inicializacion de clases, caches o sistema.
+No se usaron estos resultados interpretados para clasificar los algoritmos
+en el funcionamiento normal. Tampoco identifican el porcentaje exacto de
+aceleracion atribuible solo al JIT.
+
+Estabilidad: en las ultimas 20 rondas intercaladas de n=5,000, Quicksort tuvo
+p10/p90 aproximados 0.886/1.623 ms y Arrays.sort 1.320/2.031 ms. La razon entre
+mediana de ultimas 20 y las 20 anteriores fue 1.018 y 1.191, respectivamente.
+Las pasadas finales son mucho mas rapidas que la primera, pero NO hay evidencia
+de estabilidad absoluta, ni de que cien pasadas siempre eliminen la deriva.
+No se midieron afinidad, frecuencia de CPU, temperatura o carga del sistema;
+no se atribuye causalidad concreta a esos factores. Las mediciones se hicieron
+en un equipo de escritorio compartido con otras actividades; no es un entorno
+aislado ni un estudio JMH. Compilacion y comprobaciones auxiliares tambien
+pudieron afectar algunas tandas; la verificacion final ejecuta las dos politicas
+secuencialmente despues de compilar, conservando resultados separados.
+
+5. CORRECCIONES APLICADAS Y LIMITES
+
+ComparadorOrdenamientos.comparar: se sustituyo el inicio incondicional tras
+tres rondas por una fase de calentamiento independiente. Cada metodo recibe
+al menos tres pasadas y continua hasta acumular un segundo de ordenamiento
+o alcanzar cien pasadas. Se alternan los pendientes. La regla es identica
+para los seis metodos; las cantidades de pasadas pueden diferir. Una llamada
+lenta puede sobrepasar el segundo, y las tres minimas siguen siendo obligatorias.
+No se suman estos tiempos al resultado. El limite evita un calentamiento
+ilimitado; los metodos muy rapidos suelen llegar a cien SIN completar un segundo.
+Es una mejora practica, NO un detector ni una garantia de convergencia del JIT.
+
+Se mantienen nueve muestras, entrada y criterio comun, nanoTime alrededor del
+ordenamiento, mediana y todas las firmas publicas previas. Se ordena una copia
+de los tiempos, conservando las nueve muestras en orden de ejecucion.
+ResultadoPrueba agrega getters de muestras, numero de calentamientos y tiempo
+de calentamiento; los arreglos entran y salen mediante copias defensivas.
+Los constructores anteriores siguen funcionando. No hay cambios visuales.
+
+Se verifican tambien los calentamientos. Si alguna pasada falla, se lanza
+IllegalStateException: la GUI ya maneja errores y no agregara esas mediciones
+como si fueran resultados validos. Antes se guardaba correcto=false pero la
+interfaz no mostraba esa columna y aun graficaba el tiempo. Se agrego la
+comprobacion explicita de longitud en el verificador. No se encontro una
+ejecucion real mal ordenada; este cambio cierra el manejo de una falla futura.
+
+Primera tanda tras corregir, misma danceability a 5,000:
+Arrays.sort 1.9152 ms y parallelSort 2.0692 ms, frente a 15.5426 y 15.7789
+del procedimiento original. Las cinco medianas corregidas de Arrays.sort
+fueron 1.9152, 1.6538, 1.6578, 2.2505, 2.2871 ms. La penalizacion inicial
+de ese tamano se redujo en esta prueba; la dispersion residual sigue visible.
+Una muestra de parallelSort llego a 18.1058 ms en la quinta llamada: se conserva
+en el CSV y no se le asigna una causa no demostrada. La mediana fue 1.8189 ms.
+Los datos adicionales del script final se guardan en *-repetido.csv.
+
+Corroboracion final, sin compilacion entre las tandas de medicion: protocolo
+de tres calentamientos, Arrays.sort 11.6948 ms en la primera llamada y 2.3730
+en la quinta; politica corregida, primera 2.2084 ms, siguientes 2.0475,
+2.0397, 1.9884 y 2.2953. parallelSort: primera original 18.1387 ms y primera
+corregida 2.0644 ms; siguientes corregidas 2.0545, 2.0046, 2.2259, 2.2262.
+Cada tanda empieza en una JVM nueva. Esta repeticion apoya la mejora del
+arranque, sin convertir el limite de calentamiento en garantia de estabilidad.
+
+No cambie Ordenamientos.java, el tipo Integer[], la fuente de datos, los vacios,
+el comparador, los graficos ni el record Resumen. No agregue dependencias,
+retardos, factores correctores o instrucciones para favorecer algun metodo.
+La preparacion de pruebas mas rigurosa aumenta el tiempo de espera de la GUI;
+en todas las columnas ese costo se acumula. Es un intercambio explicito a
+cambio de reducir la contaminacion inicial, no un aumento del tiempo medido.
+
+6. PROBLEMAS POR GRAVEDAD Y VERIFICACION
+
+Criticos: ninguno observado en ordenamiento o integridad del CSV real.
+
+Importantes, corregidos: calentamiento insuficiente demostrado; perdida de
+muestras individuales para auditar dispersion; presentacion potencial de
+resultados incorrectos sin que su indicador interno fuera visible.
+
+Limitaciones importantes conservadas deliberadamente: peor caso cuadratico
+del primer pivote, volumen de asignaciones de Mergesort y costo alto de Shell
+docente. Son propiedades de las variantes, no fallos que justifiquen sustituir
+algoritmos para conseguir una tabla particular. Los metodos nativos no consultan
+la cancelacion de la Task dentro de su trabajo; detener no garantiza que el
+ordenamiento nativo haya terminado al instante. Evitar reanudar otra prueba
+antes de terminar ese trabajo es necesario en una medicion controlada.
+
+Menores: ruta CSV absoluta poco portable, perfiles visuales calculados en el
+hilo JavaFX al construir encabezados y criterio de deteccion de tipo basado
+en las primeras n filas. Por ello una columna mixta puede clasificarse distinto
+al cambiar n: comparar tamanos implica revisar tambien el tipo detectado.
+No afecta las comparaciones de n identico de este informe.
+
+El lector admite campos entrecomillados en una linea, pero rechaza un campo
+valido con salto de linea interno: se comprobo con un fixture. La entrada fija
+actual no tiene ese problema: sus campos coinciden todos con el parser Python.
+No se amplio el formato del lector durante la investigacion de tiempos.
+Las excepciones de comillas no cerradas son IllegalArgumentException, mientras
+otras fallas de lectura son IOException; la Task de la GUI maneja ambas.
+
+Esteticos: sin cambios. La tabla sigue teniendo cuatro columnas y encabezado
+Tiempo (ms); las graficas siguen en blanco y negro.
+
+Pruebas funcionales: 3,336 entradas, 20,016 ordenamientos por tanda, ejecutadas
+antes y despues del cambio. Incluyen exhaustivamente arreglos de longitud
+0..7 sobre {vacio,-1,2}; vacio, uno, parejas, ascendente, descendente, iguales,
+aleatorios, negativos, decimales, texto, numeros y letras, mayusculas, vacios
+y no finitos. Casos dirigidos hasta 5,000; casos reales hasta 32,503.
+Se verifican longitud, indices validos, unicidad, orden y valores equivalentes
+a una referencia Arrays.sort, respetando empates sin exigir estabilidad ajena.
+
+Matriz real: 49 entradas (7 columnas x 7 tamanos), 3,990 ordenamientos medidos.
+Tamanos: 100, 500, 1,000, 3,000, 5,000, 10,000 y 32,503.
+Columnas: danceability, tempo, spotify_track_popularity, performer, song,
+spotify_genre y spotify_track_id. Son 15 pasadas por metodo y entrada;
+resumen-matriz.csv usa las nueve finales (rondas 6..14). No es una prueba
+de convergencia ni sustituye las series de cien repeticiones. Seleccion se
+incluye hasta 1,000 en esta matriz y tambien en la serie completa separada
+de 20 pasadas a 32,503. Todos los resultados medidos fueron verificados.
+
+Integracion: doce resultados sobre dos columnas y todos los metodos; mediana
+exacta de nueve muestras, copias defensivas, limites de calentamiento,
+rechazo de indices repetidos/nulos/fuera de rango y orden/longitud incorrectos,
+y cancelacion antes de iniciar. CSV: BOM, comas citadas, comillas escapadas,
+ultimo campo vacio, fila incompleta y limitacion multilinea documentada.
+Maven test completo termino correctamente con JDK 23. Las pruebas nuevas
+son programas independientes en diagnostico, no pruebas JUnit descubiertas
+por Maven. La logica se probo sin JavaFX y se compilo la aplicacion completa;
+no se hizo una inspeccion visual de la ventana en esta investigacion.
+
+7. REPRODUCIR Y DEFENDER LOS RESULTADOS
+
+Desde la raiz del proyecto, PowerShell:
+    ./diagnostico/reproducir.ps1
+    ./diagnostico/reproducir.ps1 -Completo
+    python diagnostico/analizar.py diagnostico/resultados/repetidas-5000.csv
+    python diagnostico/analizar.py diagnostico/resultados/matriz
+
+El script usa el JDK local indicado en su parametro -Jdk, sin Maven ni librerias
+externas para el arnes. Los experimentos se lanzan en serie, cada uno con
+la politica indicada. LectorCSV.RUTA debe apuntar al mismo archivo de musica.
+Completo vuelve a escribir los CSV experimentales; conservar una copia antes
+si se quieren contrastar tandas. gui-original.csv queda como evidencia inicial.
+ComparadorTresCalentamientos es una reconstruccion del protocolo de tres
+calentamientos para repetir el contraste, no una copia exacta byte por byte
+del archivo original. ReferenciaAnterior si contiene el algoritmo del HEAD
+identificado, con su clase renombrada; nunca participa en la GUI.
+
+Para inspeccionar JFR, usar bin/jfr.exe del mismo JDK:
+    jfr print --json --events practica.Muestra,jdk.Compilation,jdk.GarbageCollection,jdk.GCPhasePause ARCHIVO.csv.jfr
+Guardar la salida JSON y pasar su ruta a analizar.py para calcular solapamientos.
+Los .jfr originales estan en resultados; los JSON grandes se excluyen de Git
+porque se pueden regenerar. Los .class de diagnostico tambien se excluyen.
+
+Respuesta para la entrega: los seis metodos ordenan correctamente las entradas
+probadas. La comparacion comparte entrada, representacion y comparador. El
+problema comprobado era tratar tres calentamientos como suficientes y reducir
+la evidencia a una sola mediana. La correccion reduce el arranque contaminado
+y conserva las muestras, pero las afirmaciones de rendimiento deben referirse
+a columna, n, JDK, calentamiento y dispersion concretos. O(n log n) no fija
+constantes ni un orden de ganadores; el primer pivote tampoco garantiza ese
+comportamiento en todas las entradas. No hay evidencia de un error real en
+Mergesort ni en las llamadas nativas, ni motivo para penalizarlos artificialmente.
+
+Fuente tecnica primaria consultada, ademas del src.zip del JDK ejecutado:
+Oracle, Arrays, Java SE 23 (sobrecargas de objetos con Comparator):
+https://docs.oracle.com/en/java/javase/23/docs/api/java.base/java/util/Arrays.html
+Las explicaciones de TimSort, estabilidad, sort-merge y common pool se refieren
+a esas sobrecargas, no a las sobrecargas primitivas.

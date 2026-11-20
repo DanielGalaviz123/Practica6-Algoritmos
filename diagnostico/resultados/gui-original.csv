@@ -1,0 +1,31 @@
+ejecucion,metodo,ms,correcto
+0,Seleccion directa,135.187200,true
+0,Shell sort,15.201600,true
+0,Quicksort,2.104500,true
+0,Mergesort,3.370500,true
+0,Arrays.sort,15.542600,true
+0,Arrays.parallelSort,15.778900,true
+1,Seleccion directa,82.011100,true
+1,Shell sort,9.351400,true
+1,Quicksort,1.385200,true
+1,Mergesort,2.028900,true
+1,Arrays.sort,2.308400,true
+1,Arrays.parallelSort,2.462000,true
+2,Seleccion directa,56.981700,true
+2,Shell sort,6.624300,true
+2,Quicksort,0.906600,true
+2,Mergesort,1.549600,true
+2,Arrays.sort,1.518900,true
+2,Arrays.parallelSort,1.572300,true
+3,Seleccion directa,62.641300,true
+3,Shell sort,6.858500,true
+3,Quicksort,0.965800,true
+3,Mergesort,1.549100,true
+3,Arrays.sort,1.497300,true
+3,Arrays.parallelSort,1.524000,true
+4,Seleccion directa,53.158300,true
+4,Shell sort,6.763600,true
+4,Quicksort,0.934300,true
+4,Mergesort,1.464900,true
+4,Arrays.sort,1.254700,true
+4,Arrays.parallelSort,1.542700,true

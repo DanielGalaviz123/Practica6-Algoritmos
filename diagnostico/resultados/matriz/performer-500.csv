@@ -1,0 +1,91 @@
+columna,n,ronda,metodo,ms,gc_delta,jit_ms_delta,bytes_hilo,hash_entrada
+performer,500,0,Quicksort,0.267400,0,0,48,-1044296069
+performer,500,0,Shell sort,0.924200,0,14,48,-1044296069
+performer,500,0,Arrays.sort,30.136300,0,37,1240,-1044296069
+performer,500,0,Mergesort,0.222000,0,0,36192,-1044296069
+performer,500,0,Seleccion directa,2.063500,0,1,48,-1044296069
+performer,500,0,Arrays.parallelSort,0.347700,0,0,1240,-1044296069
+performer,500,1,Arrays.parallelSort,0.274500,0,0,1240,-1044296069
+performer,500,1,Quicksort,0.330800,0,0,48,-1044296069
+performer,500,1,Shell sort,0.892400,0,0,48,-1044296069
+performer,500,1,Arrays.sort,0.265600,0,0,1240,-1044296069
+performer,500,1,Mergesort,0.176500,0,0,36192,-1044296069
+performer,500,1,Seleccion directa,2.147800,0,0,48,-1044296069
+performer,500,2,Shell sort,1.040500,0,0,48,-1044296069
+performer,500,2,Quicksort,0.361000,0,0,48,-1044296069
+performer,500,2,Arrays.parallelSort,0.279400,0,0,1240,-1044296069
+performer,500,2,Seleccion directa,2.527600,0,14,48,-1044296069
+performer,500,2,Mergesort,0.178500,0,0,36192,-1044296069
+performer,500,2,Arrays.sort,0.259500,0,0,1240,-1044296069
+performer,500,3,Seleccion directa,3.466800,0,0,48,-1044296069
+performer,500,3,Arrays.sort,0.269300,0,0,1240,-1044296069
+performer,500,3,Mergesort,0.168400,0,0,36192,-1044296069
+performer,500,3,Quicksort,0.224300,0,0,48,-1044296069
+performer,500,3,Shell sort,0.944500,0,0,48,-1044296069
+performer,500,3,Arrays.parallelSort,0.305800,0,0,1240,-1044296069
+performer,500,4,Quicksort,0.238800,0,0,48,-1044296069
+performer,500,4,Mergesort,0.175400,0,0,36192,-1044296069
+performer,500,4,Seleccion directa,2.136400,0,0,48,-1044296069
+performer,500,4,Shell sort,0.899600,0,0,48,-1044296069
+performer,500,4,Arrays.parallelSort,0.257300,0,0,1240,-1044296069
+performer,500,4,Arrays.sort,0.254400,0,0,1240,-1044296069
+performer,500,5,Seleccion directa,2.301900,0,12,48,-1044296069
+performer,500,5,Shell sort,0.672000,0,0,48,-1044296069
+performer,500,5,Arrays.sort,0.266900,0,0,1240,-1044296069
+performer,500,5,Mergesort,0.171200,0,0,36192,-1044296069
+performer,500,5,Quicksort,0.243800,0,0,48,-1044296069
+performer,500,5,Arrays.parallelSort,0.266600,0,0,1240,-1044296069
+performer,500,6,Shell sort,0.660100,0,0,48,-1044296069
+performer,500,6,Mergesort,0.168300,0,0,36192,-1044296069
+performer,500,6,Quicksort,0.214900,0,0,48,-1044296069
+performer,500,6,Arrays.sort,0.259100,0,0,1240,-1044296069
+performer,500,6,Arrays.parallelSort,0.258300,0,0,1240,-1044296069
+performer,500,6,Seleccion directa,2.159300,0,6,48,-1044296069
+performer,500,7,Seleccion directa,11.468600,0,0,48,-1044296069
+performer,500,7,Mergesort,0.186200,0,0,36192,-1044296069
+performer,500,7,Shell sort,0.714700,0,0,48,-1044296069
+performer,500,7,Arrays.parallelSort,0.256500,0,0,1240,-1044296069
+performer,500,7,Arrays.sort,0.304900,0,0,1240,-1044296069
+performer,500,7,Quicksort,0.226700,0,0,48,-1044296069
+performer,500,8,Arrays.parallelSort,0.221700,0,0,1240,-1044296069
+performer,500,8,Seleccion directa,2.283100,0,0,48,-1044296069
+performer,500,8,Quicksort,0.217800,0,0,48,-1044296069
+performer,500,8,Mergesort,0.184900,0,0,36192,-1044296069
+performer,500,8,Shell sort,0.627300,0,0,48,-1044296069
+performer,500,8,Arrays.sort,0.273300,0,0,1240,-1044296069
+performer,500,9,Seleccion directa,2.490500,0,0,48,-1044296069
+performer,500,9,Quicksort,0.455200,0,0,48,-1044296069
+performer,500,9,Shell sort,27.018800,0,0,48,-1044296069
+performer,500,9,Arrays.parallelSort,0.386300,0,0,1240,-1044296069
+performer,500,9,Arrays.sort,0.377500,0,0,1240,-1044296069
+performer,500,9,Mergesort,0.239500,0,0,36192,-1044296069
+performer,500,10,Arrays.sort,1.943900,0,0,1240,-1044296069
+performer,500,10,Shell sort,0.790800,0,0,48,-1044296069
+performer,500,10,Arrays.parallelSort,0.293300,0,0,1240,-1044296069
+performer,500,10,Seleccion directa,12.418200,0,67,48,-1044296069
+performer,500,10,Mergesort,0.220000,0,0,36192,-1044296069
+performer,500,10,Quicksort,0.240700,0,0,48,-1044296069
+performer,500,11,Arrays.parallelSort,0.294100,0,0,1240,-1044296069
+performer,500,11,Shell sort,0.761200,0,0,48,-1044296069
+performer,500,11,Seleccion directa,3.599700,0,0,48,-1044296069
+performer,500,11,Mergesort,0.215800,0,0,36192,-1044296069
+performer,500,11,Arrays.sort,0.354900,0,0,1240,-1044296069
+performer,500,11,Quicksort,0.203400,0,0,48,-1044296069
+performer,500,12,Arrays.sort,0.821600,0,0,1240,-1044296069
+performer,500,12,Quicksort,0.174600,0,0,48,-1044296069
+performer,500,12,Shell sort,0.700100,0,0,48,-1044296069
+performer,500,12,Seleccion directa,2.456800,0,0,48,-1044296069
+performer,500,12,Mergesort,0.203300,0,0,36192,-1044296069
+performer,500,12,Arrays.parallelSort,0.269300,0,0,1240,-1044296069
+performer,500,13,Arrays.sort,0.326300,0,0,1240,-1044296069
+performer,500,13,Seleccion directa,74.371400,0,58,48,-1044296069
+performer,500,13,Arrays.parallelSort,0.250600,0,0,1240,-1044296069
+performer,500,13,Mergesort,0.179900,0,0,36192,-1044296069
+performer,500,13,Shell sort,0.673200,0,0,48,-1044296069
+performer,500,13,Quicksort,0.155600,0,0,48,-1044296069
+performer,500,14,Quicksort,0.163000,0,0,48,-1044296069
+performer,500,14,Arrays.sort,0.236600,0,0,1240,-1044296069
+performer,500,14,Shell sort,0.662400,0,0,48,-1044296069
+performer,500,14,Arrays.parallelSort,29.578400,0,0,1240,-1044296069
+performer,500,14,Seleccion directa,2.005900,0,0,48,-1044296069
+performer,500,14,Mergesort,0.229900,0,0,36192,-1044296069

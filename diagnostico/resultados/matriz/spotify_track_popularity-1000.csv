@@ -1,0 +1,91 @@
+columna,n,ronda,metodo,ms,gc_delta,jit_ms_delta,bytes_hilo,hash_entrada
+spotify_track_popularity,1000,0,Quicksort,0.109900,0,0,48,133786869
+spotify_track_popularity,1000,0,Shell sort,0.662000,0,0,48,133786869
+spotify_track_popularity,1000,0,Arrays.sort,0.301400,0,0,3280,133786869
+spotify_track_popularity,1000,0,Mergesort,0.229100,0,0,76368,133786869
+spotify_track_popularity,1000,0,Seleccion directa,2.756200,0,0,48,133786869
+spotify_track_popularity,1000,0,Arrays.parallelSort,0.704400,0,0,3280,133786869
+spotify_track_popularity,1000,1,Arrays.parallelSort,0.312500,0,0,3280,133786869
+spotify_track_popularity,1000,1,Quicksort,0.149100,0,0,48,133786869
+spotify_track_popularity,1000,1,Shell sort,0.701700,0,0,48,133786869
+spotify_track_popularity,1000,1,Arrays.sort,0.383400,0,0,3280,133786869
+spotify_track_popularity,1000,1,Mergesort,0.244300,0,0,76368,133786869
+spotify_track_popularity,1000,1,Seleccion directa,2.487000,0,0,48,133786869
+spotify_track_popularity,1000,2,Shell sort,0.668700,0,0,48,133786869
+spotify_track_popularity,1000,2,Quicksort,0.117900,0,0,48,133786869
+spotify_track_popularity,1000,2,Arrays.parallelSort,0.324900,0,0,3280,133786869
+spotify_track_popularity,1000,2,Seleccion directa,2.212800,0,0,48,133786869
+spotify_track_popularity,1000,2,Mergesort,0.228500,0,0,76368,133786869
+spotify_track_popularity,1000,2,Arrays.sort,0.294500,0,0,3280,133786869
+spotify_track_popularity,1000,3,Seleccion directa,2.304500,0,0,48,133786869
+spotify_track_popularity,1000,3,Arrays.sort,0.385400,0,0,3280,133786869
+spotify_track_popularity,1000,3,Mergesort,0.256700,0,0,76368,133786869
+spotify_track_popularity,1000,3,Quicksort,0.099800,0,0,48,133786869
+spotify_track_popularity,1000,3,Shell sort,0.671600,0,0,48,133786869
+spotify_track_popularity,1000,3,Arrays.parallelSort,0.307500,0,0,3280,133786869
+spotify_track_popularity,1000,4,Quicksort,0.105100,0,0,48,133786869
+spotify_track_popularity,1000,4,Mergesort,0.213300,0,0,76368,133786869
+spotify_track_popularity,1000,4,Seleccion directa,2.316900,0,113,48,133786869
+spotify_track_popularity,1000,4,Shell sort,0.615800,0,0,48,133786869
+spotify_track_popularity,1000,4,Arrays.parallelSort,0.411700,0,0,3280,133786869
+spotify_track_popularity,1000,4,Arrays.sort,0.330900,0,0,3280,133786869
+spotify_track_popularity,1000,5,Seleccion directa,2.087500,0,0,48,133786869
+spotify_track_popularity,1000,5,Shell sort,0.606200,0,0,48,133786869
+spotify_track_popularity,1000,5,Arrays.sort,0.297300,0,0,3280,133786869
+spotify_track_popularity,1000,5,Mergesort,0.223000,0,0,76368,133786869
+spotify_track_popularity,1000,5,Quicksort,0.101400,0,0,48,133786869
+spotify_track_popularity,1000,5,Arrays.parallelSort,0.391600,0,0,3280,133786869
+spotify_track_popularity,1000,6,Shell sort,0.621800,0,0,48,133786869
+spotify_track_popularity,1000,6,Mergesort,0.230500,0,0,76368,133786869
+spotify_track_popularity,1000,6,Quicksort,0.113500,0,0,48,133786869
+spotify_track_popularity,1000,6,Arrays.sort,0.283100,0,0,3280,133786869
+spotify_track_popularity,1000,6,Arrays.parallelSort,0.346600,0,0,3280,133786869
+spotify_track_popularity,1000,6,Seleccion directa,2.150000,0,0,48,133786869
+spotify_track_popularity,1000,7,Seleccion directa,2.116800,0,0,48,133786869
+spotify_track_popularity,1000,7,Mergesort,0.237800,0,12,76368,133786869
+spotify_track_popularity,1000,7,Shell sort,0.639600,0,1,48,133786869
+spotify_track_popularity,1000,7,Arrays.parallelSort,0.307600,0,0,3280,133786869
+spotify_track_popularity,1000,7,Arrays.sort,0.505600,0,0,3280,133786869
+spotify_track_popularity,1000,7,Quicksort,0.110000,0,0,48,133786869
+spotify_track_popularity,1000,8,Arrays.parallelSort,0.317200,0,0,3280,133786869
+spotify_track_popularity,1000,8,Seleccion directa,2.541800,0,0,48,133786869
+spotify_track_popularity,1000,8,Quicksort,0.107500,0,0,48,133786869
+spotify_track_popularity,1000,8,Mergesort,0.221200,0,0,76368,133786869
+spotify_track_popularity,1000,8,Shell sort,0.650200,0,0,48,133786869
+spotify_track_popularity,1000,8,Arrays.sort,0.323800,0,0,3280,133786869
+spotify_track_popularity,1000,9,Seleccion directa,2.502200,0,0,48,133786869
+spotify_track_popularity,1000,9,Quicksort,0.111600,0,0,48,133786869
+spotify_track_popularity,1000,9,Shell sort,0.649600,0,0,48,133786869
+spotify_track_popularity,1000,9,Arrays.parallelSort,0.382900,0,0,3280,133786869
+spotify_track_popularity,1000,9,Arrays.sort,0.275400,0,1,3280,133786869
+spotify_track_popularity,1000,9,Mergesort,0.248900,0,0,76368,133786869
+spotify_track_popularity,1000,10,Arrays.sort,0.390000,0,0,3280,133786869
+spotify_track_popularity,1000,10,Shell sort,0.708400,0,0,48,133786869
+spotify_track_popularity,1000,10,Arrays.parallelSort,0.357800,0,0,3280,133786869
+spotify_track_popularity,1000,10,Seleccion directa,2.417100,0,1,48,133786869
+spotify_track_popularity,1000,10,Mergesort,0.244300,0,0,76368,133786869
+spotify_track_popularity,1000,10,Quicksort,0.113200,0,0,48,133786869
+spotify_track_popularity,1000,11,Arrays.parallelSort,0.301800,0,0,3280,133786869
+spotify_track_popularity,1000,11,Shell sort,0.646100,0,0,48,133786869
+spotify_track_popularity,1000,11,Seleccion directa,2.275800,0,0,48,133786869
+spotify_track_popularity,1000,11,Mergesort,0.235000,0,0,76368,133786869
+spotify_track_popularity,1000,11,Arrays.sort,0.367700,0,0,3280,133786869
+spotify_track_popularity,1000,11,Quicksort,0.106200,0,0,48,133786869
+spotify_track_popularity,1000,12,Arrays.sort,0.275800,0,0,3280,133786869
+spotify_track_popularity,1000,12,Quicksort,0.107500,0,0,48,133786869
+spotify_track_popularity,1000,12,Shell sort,0.660200,0,0,48,133786869
+spotify_track_popularity,1000,12,Seleccion directa,2.360200,0,0,48,133786869
+spotify_track_popularity,1000,12,Mergesort,0.285900,0,0,76368,133786869
+spotify_track_popularity,1000,12,Arrays.parallelSort,0.301200,0,0,3280,133786869
+spotify_track_popularity,1000,13,Arrays.sort,0.387800,0,0,3280,133786869
+spotify_track_popularity,1000,13,Seleccion directa,2.354900,0,0,48,133786869
+spotify_track_popularity,1000,13,Arrays.parallelSort,0.290800,0,0,3280,133786869
+spotify_track_popularity,1000,13,Mergesort,0.255400,0,0,76368,133786869
+spotify_track_popularity,1000,13,Shell sort,0.710100,0,0,48,133786869
+spotify_track_popularity,1000,13,Quicksort,0.128300,0,0,48,133786869
+spotify_track_popularity,1000,14,Quicksort,0.119200,0,0,48,133786869
+spotify_track_popularity,1000,14,Arrays.sort,0.431800,0,0,3280,133786869
+spotify_track_popularity,1000,14,Shell sort,0.724400,0,0,48,133786869
+spotify_track_popularity,1000,14,Arrays.parallelSort,0.712000,0,0,3280,133786869
+spotify_track_popularity,1000,14,Seleccion directa,2.638400,0,7,48,133786869
+spotify_track_popularity,1000,14,Mergesort,0.317000,0,0,76368,133786869

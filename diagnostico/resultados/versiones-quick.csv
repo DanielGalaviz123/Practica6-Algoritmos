@@ -1,0 +1,5 @@
+entrada,n,version,comparaciones
+danceability,32503,HEAD_dos_vias,6380910
+danceability,32503,actual_tres_vias,305265
+todos_iguales,32503,HEAD_dos_vias,528206253
+todos_iguales,32503,actual_tres_vias,32502

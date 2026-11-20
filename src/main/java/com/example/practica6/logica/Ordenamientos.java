@@ -1,4 +1,3 @@
-
 package com.example.practica6.logica;
 
 import java.util.Arrays;
@@ -7,36 +6,34 @@ import java.util.concurrent.CancellationException;
 public class Ordenamientos {
 
     public static void seleccion(Integer[] a, DatosColumna columna) {
+        Integer menor;
+        int k;
 
-        int menor, k;
-
-        for(int i=0; i < a.length-1; i++) {
+        for(int i=0; i<a.length-1; i++) {
             revisarCancelacion();
-            menor = a[i];
+            menor=a[i];
             k=i;
 
             // Buscar el menor entre los elementos restantes
-            for (int j=i+1; j<a.length; j++) {
+            for(int j=i+1; j<a.length; j++) {
                 if(columna.comparar(a[j],menor)<0) {
                     menor=a[j];
                     k=j;
                 }
             }
-
-            a[k] = a[i];
+            a[k]=a[i];
             a[i]=menor;
         }
     }
 
-
     public static void shell(Integer[] a, DatosColumna columna) {
-
-        int inter = a.length+1;
-        int band, i, aux;
+        int inter=a.length+1;
+        int band,i;
+        Integer aux;
 
         while(inter>1) {
             inter=inter/2;
-            band = 1;
+            band=1;
 
             while(band==1) {
                 revisarCancelacion();
@@ -44,11 +41,11 @@ public class Ordenamientos {
                 i=0;
 
                 // Comparar elementos con el intervalo actual
-                while(i+inter < a.length) {
+                while(i+inter<a.length) {
                     if(columna.comparar(a[i],a[i+inter])>0) {
-                        aux = a[i];
+                        aux=a[i];
                         a[i]=a[i+inter];
-                        a[i+inter] = aux;
+                        a[i+inter]=aux;
                         band=1;
                     }
                     i++;
@@ -57,127 +54,124 @@ public class Ordenamientos {
         }
     }
 
-
     public static void quicksort(Integer[] a, DatosColumna columna) {
-
-        if(a.length>1) {
+        if(a.length > 1) {
             quick(a,columna,0,a.length-1);
         }
     }
 
     private static void quick(Integer[] a, DatosColumna columna, int ini, int fin) {
-
         while(ini < fin) {
             revisarCancelacion();
 
-            int izq=ini, der=fin, pos=ini;
-            boolean band=true;
-            int aux;
+            Integer pivote=a[ini];
+            int izq=ini, i=ini+1, der=fin;
 
-            // El pivote inicia en la primera posicion
-            while (band) {
-                band=false;
+            while(i <= der) {
+                int comparacion=columna.comparar(a[i],pivote);
 
-                while(pos!=der && columna.comparar(a[pos],a[der])<=0) {
+                if(comparacion < 0) {
+                    Integer aux=a[izq];
+                    a[izq]=a[i];
+                    a[i]=aux;
+                    izq++;
+                    i++;
+                }
+                else if(comparacion > 0) {
+                    Integer aux=a[i];
+                    a[i]=a[der];
+                    a[der]=aux;
                     der--;
                 }
-
-                if(pos!=der) {
-                    aux=a[pos];
-                    a[pos] = a[der];
-                    a[der]=aux;
-                    pos=der;
-
-                    while(pos!=izq && columna.comparar(a[pos],a[izq])>=0) {
-                        izq++;
-                    }
-
-                    if(pos!=izq) {
-                        band=true;
-                        aux = a[pos];
-                        a[pos]=a[izq];
-                        a[izq]=aux;
-                        pos = izq;
-                    }
+                else {
+                    i++;
                 }
             }
 
-            // Seguir con las partes que faltan
-            if(pos-ini < fin-pos) {
-                if(ini<pos-1) {
-                    quick(a,columna,ini,pos-1);
+            if(izq-ini < fin-der) {
+                if(ini < izq-1) {
+                    quick(a,columna,ini,izq-1);
                 }
-
-                ini=pos+1;
+                ini=der+1;
             }
             else {
-                if(pos+1<fin) {
-                    quick(a,columna,pos+1,fin);
+                if(der+1 < fin) {
+                    quick(a,columna,der+1,fin);
                 }
-
-                fin = pos-1;
+                fin=izq-1;
             }
         }
     }
 
-
     public static void mergesort(Integer[] a, DatosColumna columna) {
-
-        Integer[] aux=new Integer[a.length];
-        merge(a,aux,columna,0,a.length-1);
+        if(a.length>1) {
+            merge(a,columna,0,a.length-1);
+        }
     }
 
-    private static void merge(Integer[] a, Integer[] aux,
-                              DatosColumna columna, int ini, int fin) {
-
-        if(ini >= fin) {
+    private static void merge(Integer[] a, DatosColumna columna, int ini, int fin) {
+        if(ini>=fin) {
             return;
         }
 
         revisarCancelacion();
+        int medio=(ini+fin)/2;
 
-        int medio=ini+(fin-ini)/2;
+        merge(a,columna,ini,medio);
+        merge(a,columna,medio+1,fin);
 
-        // Dividir el arreglo en dos mitades
-        merge(a,aux,columna,ini,medio);
-        merge(a,aux,columna,medio+1,fin);
+        combinar(a,columna,ini,medio,fin);
+    }
 
-        int i=ini, j = medio+1, k=ini;
+    private static void combinar(Integer[] a, DatosColumna columna, int ini, int medio, int fin) {
+        int n1=medio-ini+1;
+        int n2=fin-medio;
 
-        // Unir ambas partes en orden
-        while(i<=medio && j<=fin) {
-            if(columna.comparar(a[i],a[j])<=0) {
-                aux[k++] = a[i++];
-            }else {
-                aux[k++]=a[j++];
+        Integer[] izquierda=new Integer[n1];
+        Integer[] derecha=new Integer[n2];
+
+        for(int i=0; i<n1; i++) {
+            izquierda[i]=a[ini+i];
+        }
+        for(int j=0; j<n2; j++) {
+            derecha[j]=a[medio+1+j];
+        }
+
+        int i=0, j=0, k=ini;
+
+        while(i<n1 && j<n2) {
+            if(columna.comparar(izquierda[i],derecha[j])<=0) {
+                a[k]=izquierda[i];
+                i++;
+            } else {
+                a[k]=derecha[j];
+                j++;
             }
+            k++;
         }
 
-        while(i <= medio) {
-            aux[k++]=a[i++];
+        while(i<n1) {
+            a[k]=izquierda[i];
+            i++;
+            k++;
         }
 
-        while(j<=fin) {
-            aux[k++] = a[j++];
-        }
-
-        for(int p=ini; p <= fin; p++) {
-            a[p]=aux[p];
+        while(j<n2) {
+            a[k]=derecha[j];
+            j++;
+            k++;
         }
     }
 
-
     public static void sortJava(Integer[] a, DatosColumna columna) {
-        Arrays.sort(a, (x,y) -> columna.comparar(x,y));
+        Arrays.sort(a,(x,y) -> columna.comparar(x,y));
     }
 
     public static void parallelSort(Integer[] a, DatosColumna columna) {
-        Arrays.parallelSort(a, (x,y) -> columna.comparar(x,y));
+        Arrays.parallelSort(a,(x,y) -> columna.comparar(x,y));
     }
 
-
     private static void revisarCancelacion() {
-
         if(Thread.currentThread().isInterrupted()) {
             throw new CancellationException("Prueba cancelada");
         }
